@@ -4,14 +4,16 @@ public class UploadFile {
     private Integer fileid;
     private String filename;
     private String contenttype;
-    public Long filesize;
+    private Long filesize;
+    private Integer userid;
     private byte[] filedata;
 
-    public UploadFile(Integer fileid, String filename, String contenttype, Long filesize, byte[] filedata) {
+    public UploadFile(Integer fileid, String filename, String contenttype, Long filesize, Integer userid, byte[] filedata) {
         this.fileid = fileid;
         this.filename = filename;
         this.contenttype = contenttype;
         this.filesize = filesize;
+        this.userid = userid;
         this.filedata = filedata;
     }
 

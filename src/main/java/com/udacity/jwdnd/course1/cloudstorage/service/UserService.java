@@ -43,6 +43,10 @@ public class UserService {
         return encodedSalt;
     }
 
+    public User getUserByUserName(String username) {
+        return userMapper.findUserByUserName(username);
+    }
+
 //    public String encryptPassword(String password, String encryptionKey) {
 //        encryptionService.encryptValue(password, encryptionKey);
 //
