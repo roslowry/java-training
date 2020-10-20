@@ -26,7 +26,7 @@ public class UserService {
     }
 
     public int createUser(User user) {
-        String saltToEncodePasswordWith = createSalt();
+        String saltToEncodePasswordWith = encryptionService.createSalt();
         String saltedPassword = hashService.getHashedValue(user.getPassword(), saltToEncodePasswordWith);
 //        String encryptedPassword = encryptPassword(user.getPassword())
 //        user.setSalt(saltToEncodePasswordWith);
@@ -35,13 +35,7 @@ public class UserService {
 //        return userMapper.insert(user.getUsername(), saltToEncodePasswordWith, user.getPassword(), user.getFirstname(), user.getLastname());
     }
 
-    public String createSalt () {
-        SecureRandom random = new SecureRandom();
-        byte[] salt = new byte[16];
-        random.nextBytes(salt);
-        String encodedSalt = Base64.getEncoder().encodeToString(salt);
-        return encodedSalt;
-    }
+
 
     public User getUserByUserName(String username) {
         return userMapper.findUserByUserName(username);
